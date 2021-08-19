@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<!-- 	<base href="/"> -->
+	<title>New Samara</title>
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<!-- Template Basic Images End -->
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000">
+	<!-- Custom Browsers Color End -->
+	<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter48388349 = new Ya.Metrika({ id:48388349, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/48388349" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+
+	<header class="header" id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-auto col-md-2">
+					<div class="header__logo_wrap">
+						<img src="img/_main/logo.png" alt="Жилой микрорайон Новая Самара" class="header__logo">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm col-md">
+					<div class="header__links">
+						<ul class="header__links_list">
+							<li class="header__links_item">
+								<a href="#calculator" class="header__link header__link_calc slowly">Расчитать ипотеку</a>
+							</li>
+							<li class="header__links_item">
+								<a href="#map" class="header__link header__link_map slowly">Смотреть карту</a>
+							</li>
+							<li class="header__links_item">
+								<a href="tel:+78462295984" class="header__link header__link_phone">+7 (846) 254-51-46</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-auto d-none d-lg-block">
+					<div class="header__call-me">
+						<a href="#callback" class="header__link header__call-me_link slowly">Перезвоните мне</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="hero" id="hero">
+		<div class="hero__slider">
+			<div class=hero__slide v-for="(slide, index) in slides" :key="index">
+				<img :src="slide" alt="Слайд" class="slide__img">
+			</div>
+		</div>
+		<div class="hero__mobile">
+			<p class="mobile__desc">Ипотека от 6
+				<span class="mobile__desc_percent">%</span>
+			</p>
+		</div>
+	</section>
+	<section class="callback" id="callback">
+		<div class="container">
+			<form class="form">
+				<!-- Hidden Required Fields -->
+				<input type="hidden" name="project_name" value="New Samara">
+				<input type="hidden" name="admin_email" value="">
+				<input type="hidden" name="form_subject" value="New Samara">
+				<!-- END Hidden Required Fields -->
+				<div class="row">
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input" type="text" name="name" :placeholder="placeholderName" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input" type="tel" name="phone" :placeholder="placeholderPhone" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="btn callback__input callback__input_btn" type="button" :value="btnValue">
+					</div>
+				</div>
+			</form>
+			<p class="form__desc">Нажимая на кнопку «{{ btnValue}}» я даю
+				<a href="#" class="form__desc_policy">согласие на обработку
+					<span class="form__desc_policy_underline">персональных данных</span>
+				</a>
+			</p>
+		</div>
+	</section>
+	<section class="advantages" id="advantages">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsFirstLine">
+					<div class="advantages__item_img"></div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_strong"> {{ item.first }}</div>
+						<div class="advantages__item_small"> {{ item.second }}</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsSecondLine">
+					<div class="advantages__item_img"></div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_small"> {{ item.first }}</div>
+						<div class="advantages__item_strong"> {{ item.second }}</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsThirdLine">
+					<div class="advantages__item_img"></div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_small"> {{ item.first }}</div>
+						<div class="advantages__item_small"> {{ item.second }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="apartment" id="apartment">
+		<div class="section__title  apartment__title">
+			<h2 class="title">{{ title }}</h2>
+		</div>
+		<div class="apartment__options" id="apartment__options" v-show="!visible">
+			<ul class="options__list">
+				<li class="options__item" v-for="(option, index) in options" :key="index" @click="changeLayoutOptions(index)" :class="{ layout_active: option.isActive}">
+					{{ option.option }}
+				</li>
+			</ul>
+		</div>
+		<div class="apartment__layouts" id="apartment__layouts" v-show="!visible">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6" v-for="(layout, index) in sortedLayouts.slice(offset, offset + perPage)" :key="index">
+						<div class="layout">
+							<div class="row">
+								<div class="col-md-6 layout__info_col">
+									<div class="layout__info">
+										<div class="layout__desc layout__area">{{ layout.areaTotal }} м
+											<sup>2</sup>
+										</div>
+										<div class="layout__desc layout__value">{{ layout.value }} руб.</div>
+									</div>
+								</div>
+								<div class="col-md-6 layout__plan_col">
+									<div class="layout__plan">
+										<img :src="layout.img" :alt="layout.alt" class="layout__img">
+									</div>
+								</div>
+								<div class="layout__btn_desc">
+									<a href="#apartment" class="btn layout__btn layout__btn_more slowly" @click="showInformationAboutApartment(layout.index)">Узнать подробнее</a>
+									<a href="#calculator" class="btn layout__btn layout__btn_calc slowly" @click="transferCostToCalculator(layout.value)">Расчитать ипотеку</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layout__nav">
+					<span class="layout__btn_nav layout__btn_prev" @click="changeOffset(-perPage)" :class="{ btn_disabled: btnPrevDisabled}">
+						<img src="img/_apartment-layout/apartment-layout__arrow_left.png" alt="arrow left" class="btn__img">
+					</span>
+					<span class="layout__btn_nav layout__btn_next" @click="changeOffset(perPage)" :class="{ btn_disabled: btnNextDisabled}">
+						<img src="img/_apartment-layout/apartment-layout__arrow_right.png" alt="arrow right" class="btn__img">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="rooms__info" id="rooms__info" v-show="visible">
+			<div class="container">
+				<div class="row" v-for="(apartment, index) in selectedApartment">
+					<div class="col-lg-6">
+						<div class="apartment__location">
+							<div class="location__info location__section">Секция: {{ apartment.section }}</div>
+							<div class="location__info location__number">Номер квартиры: {{ apartment.number }}</div>
+							<div class="location__info location__floor">Этаж: {{ apartment.floor }}</div>
+							<img :src="apartment.imgInfo" :alt="apartment.alt" class="room__img">
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="rooms__area">
+							<h4 class="area__total">Площадь:
+								<strong class="total__value">{{ apartment.areaTotal }} кв.м.</strong>
+							</h4>
+							<ul class="area__list">
+								<li class="area__room" v-for="(area, key, index) in selectedApartment[0].areasPremises" :key="index">
+									{{ key }} -
+									<span class="area__room_val">
+										{{ area }}
+									</span>
+									кв.м.
+								</li>
+							</ul>
+						</div>
+						<div class="apartment__decoration">
+							<p class="decoration__title">{{ decoration.title }}</p>
+							<ul class="decoration__list">
+								<li class="decoration__service" v-for="(service, index) in decoration.list" :key="index">{{ service }}</li>
+							</ul>
+						</div>
+						<p class="room__price">Стоимость:
+							<strong class="price__value">
+								{{ apartment.value }} руб.
+							</strong>
+						</p>
+						<p class="room__finishing">Стоимость квартиры с чистовой отделкой уточняйте по телефону</p>
+						<div class="room__buttons">
+							<a href="#apartment" class="btn apartment__btn_back slowly" @click="visible=!visible">Вернуться к списку</a>
+							<a href="#calculator" class="btn apartment__btn_calc slowly" @click="transferCostToCalculator(apartment.value)">Расчитать ипотеку</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="builder" id="builder">
+		<div class="section__title  builder__title">
+			<h2 class="title">{{ titleLeft }}
+				<span class="dash_roboto">{{ dash }}</span> {{ titleRight }}</h2>
+		</div>
+		<div class="builder__content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 content__bg_man"></div>
+					<div class="col-lg-8">
+						<div class="content__info">
+							<ul class="content__list">
+								<li class="content__item" v-for="(string, index) in contentInfo" :key="index">{{ string }}</li>
+							</ul>
+							<div class="content__watermark">
+								<span class="content__watermark_first">{{ watermarkFirst}}</span>
+								<span class="content__watermark_second">{{ watermarkSecond}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="map" id="map">
+		<div class="section__title  map__title">
+			<h2 class="title">{{ title }} </h2>
+		</div>
+		<div class="map__wrapper">
+			<div id="map-ya"></div>
+		</div>
+	</section>
+	<section class="gallery" id="gallery">
+		<div class="section__title  gallery__title">
+			<h2 class="title">{{ title }} </h2>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="row no-gutters" id="lightgallery">
+					<div class="col-xl-1 col-md-2 col-sm-3 col-4 gallery__item" v-for="(img, index) in gallery" :key="index" :data-src="img.full">
+						<img :src="img.thumb">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="calculator" id="calculator">
+		<div class="section__title  calculator__title">
+			<h2 class="title">{{ title }} </h2>
+		</div>
+		<div class="calculator__wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-5 offset-xl-1 col-lg-6 offset-lg-0 col-md-10 offset-md-1">
+						<div class="calculator__value-changes" v-for="(inputValue, index) of calculatorValues">
+							<p class="value-change__label">{{ inputValue.label }}</p>
+							<div class="value-change__wrapper">
+								<div class="input__wrapper">
+									<input type="range" class="value-change__input" :name="inputValue.name" :id="inputValue.name" :min="inputValue.minValue"
+									  :max="inputValue.maxValue" :step="inputValue.step" v-model.number="inputValue.initialValue">
+									<div class="input__desc">
+										<span class="input__desc_min">
+											{{ inputValue.labelMinValue }}
+										</span>
+										<span class="input__desc_max">
+											{{ inputValue.labelMaxValue }}
+										</span>
+									</div>
+								</div>
+								<div class="input__wrapper_text">
+									<input type="text" class="value-change__input_text" v-model.lazy.trim.number="inputValue.initialValue">
+									<span class="input__unit">{{ inputValue.unit }}</span>
+								</div>
+							</div>
+						</div>
+						<p class="calculator__credit-amount">
+							{{ creditAmountBlock.label }}:
+							<span class="credit-amount__total">
+								{{ creditAmountBlock.initialValue }}
+							</span>
+							<span class="credit-amount__currency">
+								{{ creditAmountBlock.unit }}
+							</span>
+						</p>
+					</div>
+					<div class="col-xl-5 offset-xl-1 col-lg-5 offset-lg-1 col-md-10 offset-md-1 calculator__result">
+						<p class="result__title">Результат расчета платежей по ипотечному кредиту</p>
+						<div class="result__string" :class=`result__${item.name}` v-for="(item, index) of calculatorResultArray" :key="index">
+							<span class="result__label">{{ item.label }}:</span>
+							<div class="result__values">
+								<span class="result__value">
+									{{ item.initialValue }}
+								</span>
+								<span class="result__unit">
+									{{ item.unit }}
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="calculator__policy">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 offset-lg-0 col-md-10 offset-md-1 calculator__btn">
+						<a href="#callback_calc" class="btn calculator__btn_policy slowly">Получить точный расчет</a>
+					</div>
+					<div class="col col-md-10 offset-md-1 col-lg offset-lg-0">
+						<p class="policy__text">
+							{{ policy }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="callback callback_calc" id="callback_calc">
+		<div class="container">
+			<div class="callback__header">
+				<h3 class="callback__title">{{ headerTitle }}</h3>
+				<p class="callback__desc">{{ headerDesc }}</p>
+			</div>
+			<form action="" class="form">
+				<!-- Hidden Required Fields -->
+				<input type="hidden" name="project_name" value="New Samara">
+				<input type="hidden" name="admin_email" value="">
+				<input type="hidden" name="form_subject" value="New Samara">
+				<!-- END Hidden Required Fields -->
+				<div class="row">
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input callback__input_calc" type="text" name="name" :placeholder="placeholderName" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input callback__input_calc" type="tel" name="phone" :placeholder="placeholderPhone" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="btn callback__input callback__input_btn" type="button" :value="btnValue">
+					</div>
+				</div>
+			</form>
+			<p class="form__desc">Нажимая на кнопку «{{ btnValue}}» я даю
+				<a href="#" class="form__desc_policy">согласие на обработку
+					<span class="form__desc_policy_underline">персональных данных</span>
+				</a>
+			</p>
+		</div>
+	</section>
+	<footer class="footer" id="footer">
+		<div class="container">
+			<div class="footer__head">
+				<div class="head__logo head__logo_mobile">
+					<span class="footer__logo">{{ logo }}</span>
+					<span class="footer__date footer__date_mobile">{{ copyright }}</span>
+				</div>
+				<div class="footer__contacts">
+					<a :href="phone.link" class="contacts__phone contacts__link">{{ phone.text }}</a>
+					<a :href="docs.link" class="contacts__docs contacts__link">{{ docs.text }}</a>
+				</div>
+				<span class="footer__date footer__date_desctop">{{ copyright }}</span>
+			</div>
+			<div class="credit-information">
+				<p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
+				<span class="privacy-policy__link" @click="displayPolicy">{{ policyText }}</span>
+			</div>
+		</div>
+	</footer>
+	<div class="privacy-policy" id="privacy-policy" v-if="visible">
+		<div class="container privacy-policy__container">
+			<div class="row privacy-policy__row">
+				<div class="col privacy-policy__wrap">
+					<span class="privacy-policy__close fontello__close" @click="closePolicy"></span>
+					<h2 class="privacy-policy__title">{{ policyTitle }}</h2>
+					<p class="privacy-policy__paragraph" v-for="(paragraph, index) in policyText" :key="index"> {{ paragraph }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--===Scripts===-->
+	<script src="js/scripts.min.js" defer></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU"></script>
+</body>
+
+</html>
